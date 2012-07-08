@@ -1,0 +1,42 @@
+<project name="js.build" default="clean" basedir="../">
+	<description>js.build for ANT</description>
+	<property name="src" location="js/src" />
+	<property name="build" location="build" />
+	<property name="target" location="js" />
+	<property name="lib" location="lib" />
+	<property name="charset" value="utf-8" />
+
+	<target name="init">
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="concat" depends="init">
+		<concat destfile="${build}/core.js" encoding="${charset}" outputencoding="${charset}">
+			<path path="${src}/alert.js" />
+			<path path="${src}/button.js" />
+			<path path="${src}/carousel.js" />
+			<path path="${src}/collapse.js" />
+			<path path="${src}/dropdown.js" />
+			<path path="${src}/modal.js" />
+			<path path="${src}/popover.js" />
+			<path path="${src}/scrollspy.js" />
+			<path path="${src}/tab.js" />
+			<path path="${src}/tooltip.js" />
+			<path path="${src}/transition.js" />
+			<path path="${src}/typeahead.js" />
+		</concat>
+		<replaceregexp match="@DEBUG@" replace="" flags="g" byline="true" file="${build}/core.js" encoding="${charset}" />
+	</target>
+
+	<target name="compress" depends="concat">
+		<java jar="${lib}/yuicompressor-2.4.7.jar" fork="true">
+			<arg line="--type js --charset utf-8 ${build}/core.js -o ${target}/tide.min.js" />
+		</java>
+
+	</target>
+
+	<target name="clean" depends="compress">
+		<delete dir="${build}" />
+	</target>
+
+</project>
