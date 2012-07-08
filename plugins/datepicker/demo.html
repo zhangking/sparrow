@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<base href="./"/>
+		<title>jQuery UI Datepicker - Default functionality</title>
+		<script src="../../scripts/jquery-1.7.min.js"></script>
+		<script src="jquery.ui.datepicker.js"></script>
+		<link rel="stylesheet" href="jquery.ui.datepicker.css">
+		<script>
+			$(function(){
+			    $("#datepicker1").datepicker();
+			});
+			$(function(){
+			    $("#datepicker2").datepicker({
+			        altField: "#alternate",
+			        altFormat: "DD, d MM, yy"
+			    });
+			});
+			$(function(){
+			    $("#datepicker3").datepicker({
+			        changeMonth: true,
+			        changeYear: true
+			    });
+			});
+			$(function(){
+			    $("#datepicker4").datepicker({
+			        showOn: "button",
+			        buttonImage: "../../images/calendar.gif",
+			        buttonImageOnly: true
+			    });
+			});
+			$(function(){
+			    $("#datepicker5").datepicker();
+			});
+			$(function(){
+			    $("#datepicker6").datepicker({
+			        minDate: -20,
+			        maxDate: "+1M +10D"
+			    });
+			});
+			$(function(){
+			    $("#datepicker7").datepicker({
+			        numberOfMonths: 3,
+			        showButtonPanel: true
+			    });
+			});
+			$(function(){
+			    $("#datepicker8").datepicker({
+			        showOtherMonths: true,
+			        selectOtherMonths: true
+			    });
+			});
+			$(function(){
+			    $("#datepicker9").datepicker({
+			        showWeek: true,
+			        firstDay: 1
+			    });
+			});
+			$(function(){
+			    $("#datepicker10").datepicker({
+			        showButtonPanel: true
+			    });
+			});
+			$(function(){
+			    $("#datepicker11").datepicker();
+			    $("#format").change(function(){
+			        $("#datepicker11").datepicker("option", "dateFormat", $(this).val());
+			    });
+			});
+			$(function(){
+			    $("#from").datepicker({
+			        defaultDate: "+1w",
+			        changeMonth: true,
+			        numberOfMonths: 3,
+			        onSelect: function(selectedDate){
+			            $("#to").datepicker("option", "minDate", selectedDate);
+			        }
+			    });
+			    $("#to").datepicker({
+			        defaultDate: "+1w",
+			        changeMonth: true,
+			        numberOfMonths: 3,
+			        onSelect: function(selectedDate){
+			            $("#from").datepicker("option", "maxDate", selectedDate);
+			        }
+			    });
+			});
+		</script>
+		<style type="text/css">
+			.dp{
+				width:95%;
+				margin:20px;
+				padding:10px;
+				border-bottom:1px solid #c8c8c8; 
+				border-top:1px solid #c8c8c8;
+				border-right:1px solid #c8c8c8; 
+				border-left:5px solid #82c2fd;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="demo">
+			<div class="dp">
+				<p>
+					Default: <input type="text" id="datepicker1">
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Populate alternate field: <input type="text" id="datepicker2">&nbsp;<input type="text" id="alternate" size="30"/>
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Display month &amp; year menus:<input type="text" id="datepicker3">
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Icon trigger: <input type="text" id="datepicker4">
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Restrict date range: <input type="text" id="datepicker6">
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Display multiple months: <input type="text" id="datepicker7">
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Dates in other months: <input type="text" id="datepicker8">
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Show week of the year: <input type="text" id="datepicker9">
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Display button bar: <input type="text" id="datepicker10">
+				</p>
+			</div>
+			<div class="dp">
+				<p>
+					Format date: <input type="text" id="datepicker11" size="30"/>
+				</p>
+				<p>
+					Format options:
+					<br/>
+					<select id="format">
+						<option value="mm/dd/yy">
+							Default - mm/dd/yy
+						</option>
+						<option value="yy-mm-dd">
+							ISO 8601 - yy-mm-dd
+						</option>
+						<option value="d M, y">
+							Short - d M, y
+						</option>
+						<option value="d MM, y">
+							Medium - d MM, y
+						</option>
+						<option value="DD, d MM, yy">
+							Full - DD, d MM, yy
+						</option>
+						<option value="'day' d 'of' MM 'in the year' yy">
+							With text - 'day' d 'of' MM 'in the year' yy
+						</option>
+					</select>
+				</p>
+			</div>
+			<div class="dp">
+				Select a Date Range<label for="from">From</label>
+				<input type="text" id="from" name="from"/><label for="to">to</label>
+				<input type="text" id="to" name="to"/>
+			</div>
+			<div class="dp">
+				Display inline: 
+				<div id="datepicker5">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
