@@ -1,0 +1,19 @@
+@import "../styles/src/base.css";
+@import "../styles/src/breadcrumbs.css";
+@import "../styles/src/buttons.css";
+@import "../styles/src/forms.css";
+@import "../styles/src/icons.css";
+@import "../styles/src/labels-badges.css";
+@import "../styles/src/grid.css";
+@import "../styles/src/pagination.css";
+@import "../styles/src/progress-bars.css";
+@import "../styles/src/tables.css";
+@import "../styles/src/thumbnails.css";
+@import "../styles/src/utilities.css";
+
+.test{
+	border:1px solid #d4d4d4;
+	padding:10px;
+	margin:10px;
+	text-align:center;
+}
