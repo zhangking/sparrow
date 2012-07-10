@@ -9,5 +9,10 @@ $().ready(function(){
     }, function(){
         $(this).removeClass('btn-hover');
     });
+	$('.btn-white').hover(function(){
+        $(this).addClass('btn-white-hover');
+    }, function(){
+        $(this).removeClass('btn-white-hover');
+    });
     $('.table-striped tr:odd').addClass('table-striped-odd');
 });

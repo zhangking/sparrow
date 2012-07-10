@@ -1,37 +1,41 @@
 <project name="css-base.build" default="clean" basedir="../">
 	<description>js.build for ANT</description>
-	<property name="src" location="css/base" />
-	<property name="build" location="build" />
-	<property name="target" location="css" />
-	<property name="lib" location="lib" />
+	<property name="src" location="styles/src" />
+	<property name="tmp" location="tmp" />
+	<property name="target" location="styles" />
+	<property name="lib" location="build" />
 	<property name="charset" value="utf-8" />
 
 	<target name="init">
-		<mkdir dir="${build}" />
+		<!--<mkdir dir="${tmp}" />-->
 	</target>
 
 	<target name="concat" depends="init">
-		<concat destfile="${build}/core.css" encoding="${charset}" outputencoding="${charset}">
+		<concat destfile="${target}/sparrow.css" encoding="${charset}" outputencoding="${charset}">
 			<path path="${src}/base.css" />
+			<path path="${src}/breadcrumbs.css" />
 			<path path="${src}/buttons.css" />
 			<path path="${src}/forms.css" />
 			<path path="${src}/icons.css" />
-			<path path="${src}/layouts.css" />
+			<path path="${src}/labels-badges.css" />
+			<path path="${src}/pagination.css" />
+			<path path="${src}/progress-bars.css" />
 			<path path="${src}/tables.css" />
+			<path path="${src}/thumbnails.css" />
 			<path path="${src}/utilities.css" />
 		</concat>
-		<replaceregexp match="@DEBUG@" replace="" flags="g" byline="true" file="${build}/core.css" encoding="${charset}" />
+		<replaceregexp match="@DEBUG@" replace="" flags="g" byline="true" file="${target}/sparrow.css" encoding="${charset}" />
 	</target>
 
 	<target name="compress" depends="concat">
 		<java jar="${lib}/yuicompressor-2.4.7.jar" fork="true">
-			<arg line="--type css --charset utf-8 ${build}/core.css -o ${target}/tide-base.min.css" />
+			<arg line="--type css --charset utf-8 ${target}/sparrow.css -o ${target}/sparrow.min.css" />
 		</java>
 
 	</target>
 
 	<target name="clean" depends="compress">
-		<delete dir="${build}" />
+		<!--<delete dir="${tmp}" />-->
 	</target>
 
 </project>
