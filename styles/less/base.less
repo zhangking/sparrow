@@ -21,7 +21,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fiel
 /* HTML5 媒体文件跟 img 保持一致 */
 audio, canvas, video {
     display: inline-block;
-    .ie7-inline-block;
+    .ie7-inline-block();
 }
 
 audio:not([controls]) {
@@ -53,10 +53,6 @@ a {
 /* 去除链接虚线 */
 a {
     outline: none; /* for Forefox */
-}
-
-a {
-    star: expression(this.onFocus =this.blur()); /* for Ie*/ 
 }
 
 a:hover, a:active {

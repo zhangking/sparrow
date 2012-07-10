@@ -27,7 +27,6 @@
 }
 
 .hide-text {
-    font: 0 / 0 a;
     color: transparent;
     text-shadow: none;
     background-color: transparent;
@@ -40,9 +39,6 @@
 
 .clear {
     zoom: 1; /* for IE6 IE7 */
-}
-
-.clear {
     clear: both;
     display: block;
     overflow: hidden;
@@ -70,10 +66,7 @@
   display: block;
   width: 100%;
   min-height: 28px;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-          box-sizing: border-box;
+  .box-sizing(border-box);
 }
 
 .more {
