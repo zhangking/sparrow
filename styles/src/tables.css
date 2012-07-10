@@ -1,3 +1,9 @@
+/*!
+ * 
+ *tables
+ *
+ */
+
 table {
     max-width: 100%;
     background-color: transparent;
@@ -104,3 +110,4 @@ table {
 .table-hover{
 	background-color: #f5f5f5;
 }
+
