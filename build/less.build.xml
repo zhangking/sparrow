@@ -1,0 +1,28 @@
+<project name="less.build" default="concat" basedir="../">
+	<description>js.build for ANT</description>
+	<property name="src" location="styles/less" />
+	<property name="target" location="styles" />
+	<property name="charset" value="utf-8" />
+
+	<target name="concat">
+		<concat destfile="${target}/sparrow.less" encoding="${charset}" outputencoding="${charset}">
+			<path path="${src}/variables.less" />
+			<path path="${src}/mixins.less" />
+			<path path="${src}/base.less" />
+			<path path="${src}/breadcrumbs.less" />
+			<path path="${src}/buttons.less" />
+			<path path="${src}/forms.less" />
+			<path path="${src}/grid.less" />
+			<path path="${src}/icons.less" />
+			<path path="${src}/labels.less" />
+			<path path="${src}/pagination.less" />
+			<path path="${src}/progress-bars.less" />
+			<path path="${src}/tables.less" />
+			<path path="${src}/thumbnails.less" />
+			<path path="${src}/utilities.less" />
+			<path path="${src}/wells.less" />
+		</concat>
+		<replaceregexp match="@DEBUG@" replace="" flags="g" byline="true" file="${target}/sparrow.less" encoding="${charset}" />
+	</target>
+
+</project>

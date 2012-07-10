@@ -1,7 +1,15 @@
 .thumbnails {
   margin-left: -20px;
   list-style: none;
-  .clearfix();
+   *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 .row-fluid .thumbnails {
