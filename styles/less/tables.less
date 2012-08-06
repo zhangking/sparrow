@@ -9,7 +9,7 @@
 
 table {
   max-width: 100%;
-  background-color: @tableBackground;
+  background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -19,15 +19,15 @@ table {
 
 .table {
   width: 100%;
-  margin-bottom: @baseLineHeight;
+  margin-bottom: 18px;
   // Cells
   th,
   td {
     padding: 8px;
-    line-height: @baseLineHeight;
+    line-height: 18px;
     text-align: left;
     vertical-align: top;
-    border-top: 1px solid @tableBorder;
+    border-top: 1px solid #dddddd;
   }
   th {
     font-weight: bold;
@@ -47,7 +47,7 @@ table {
   }
   // Account for multiple tbody instances
   tbody + tbody {
-    border-top: 2px solid @tableBorder;
+    border-top: 2px solid #dddddd;
   }
 }
 
@@ -68,14 +68,14 @@ table {
 // ----------------
 
 .table-bordered {
-  border: 1px solid @tableBorder;
+  border: 1px solid #dddddd;
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapsed; // IE7 can't round corners anyway
   border-left: 0;
   .border-radius(4px);
   th,
   td {
-    border-left: 1px solid @tableBorder;
+    border-left: 1px solid #dddddd;
   }
   // Prevent a double border
   caption + thead tr:first-child th,
@@ -127,11 +127,14 @@ table {
   tbody {
     tr:nth-child(odd) td,
     tr:nth-child(odd) th {
-      background-color: @tableBackgroundAccent;
+      background-color: #f9f9f9;
     }
   }
 }
 
+.table-striped-odd {
+      background-color: #f9f9f9;
+}
 
 // HOVER EFFECT
 // ------------
@@ -139,38 +142,10 @@ table {
 .table {
   tbody tr:hover td,
   tbody tr:hover th {
-    background-color: @tableBackgroundHover;
+    background-color: #f5f5f5;
   }
 }
 
-
-// TABLE CELL SIZING
-// -----------------
-
-// Change the columns
-table {
-  .span1     { .tableColumns(1); }
-  .span2     { .tableColumns(2); }
-  .span3     { .tableColumns(3); }
-  .span4     { .tableColumns(4); }
-  .span5     { .tableColumns(5); }
-  .span6     { .tableColumns(6); }
-  .span7     { .tableColumns(7); }
-  .span8     { .tableColumns(8); }
-  .span9     { .tableColumns(9); }
-  .span10    { .tableColumns(10); }
-  .span11    { .tableColumns(11); }
-  .span12    { .tableColumns(12); }
-  .span13    { .tableColumns(13); }
-  .span14    { .tableColumns(14); }
-  .span15    { .tableColumns(15); }
-  .span16    { .tableColumns(16); }
-  .span17    { .tableColumns(17); }
-  .span18    { .tableColumns(18); }
-  .span19    { .tableColumns(19); }
-  .span20    { .tableColumns(20); }
-  .span21    { .tableColumns(21); }
-  .span22    { .tableColumns(22); }
-  .span23    { .tableColumns(23); }
-  .span24    { .tableColumns(24); }
+.table-hover {
+    background-color: #f5f5f5;
 }

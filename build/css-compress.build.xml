@@ -1,0 +1,13 @@
+<project name="css-compress.build" default="compress" basedir="../">
+	<description>js.build for ANT</description>
+	<property name="target" location="styles" />
+	<property name="lib" location="build" />
+
+	<target name="compress">
+		<java jar="${lib}/yuicompressor-2.4.7.jar" fork="true">
+			<arg line="--type css --charset utf-8 ${target}/sparrow.css -o ${target}/sparrow.min.css" />
+		</java>
+
+	</target>
+
+</project>

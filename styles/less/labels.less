@@ -1,0 +1,55 @@
+// LABELS & BADGES
+// ---------------
+
+// Base classes
+.label,
+.badge {
+  font-size: 10.998px;
+  font-weight: bold;
+  line-height: 14px; // ensure proper line-height if floated
+  color: #fff;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  background-color: #999999;
+}
+// Set unique padding and border-radii
+.label {
+  padding: 1px 4px 2px;
+  .border-radius(3px);
+}
+.badge {
+  padding: 1px 9px 2px;
+  .border-radius(9px);
+}
+
+// Hover state, but only for links
+a {
+  &.label:hover,
+  &.badge:hover {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+// Colors
+// Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
+.label,
+.badge {
+  // Important (red)
+  &-important         { background-color: #b94a48; }
+  &-important[href]   { background-color: darken(#b94a48, 10%); }
+  // Warnings (orange)
+  &-warning           { background-color: #f89406; }
+  &-warning[href]     { background-color: darken(#f89406, 10%); }
+  // Success (green)
+  &-success           { background-color: #468847; }
+  &-success[href]     { background-color: darken(#468847, 10%); }
+  // Info (turquoise)
+  &-info              { background-color: #3a87ad; }
+  &-info[href]        { background-color: darken(#3a87ad, 10%); }
+  // Inverse (black)
+  &-inverse           { background-color: #333333; }
+  &-inverse[href]     { background-color: darken(#333333, 10%); }
+}
