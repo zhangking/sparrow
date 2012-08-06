@@ -11,7 +11,7 @@ KindEditor.plugin('image', function(K) {
 	var self = this, name = 'image',
 		allowImageUpload = K.undef(self.allowImageUpload, true),
 		allowFileManager = K.undef(self.allowFileManager, false),
-		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
+		uploadJson = K.undef(self.uploadJson, 'admin/fileupload'),
 		imageTabIndex = K.undef(self.imageTabIndex, 0),
 		imgPath = self.pluginsPath + 'image/images/',
 		lang = self.lang(name + '.');
@@ -155,7 +155,7 @@ KindEditor.plugin('image', function(K) {
 
 		var uploadbutton = K.uploadbutton({
 			button : K('.ke-upload-button', div)[0],
-			fieldName : 'imgFile',
+			fieldName : 'uploadModel.upload',
 			url : K.addParam(uploadJson, 'dir=image'),
 			width: 60,
 			afterUpload : function(data) {
@@ -171,7 +171,8 @@ KindEditor.plugin('image', function(K) {
 							return false;
 						}
 					});
-					var url = K.formatUrl(data.url, 'absolute');
+					//var url = K.formatUrl(data.file_path, 'absolute');
+					var url = data.file_path;
 					clickFn.call(self, url, title, width, height, 0, align);
 					if (self.afterUpload) {
 						self.afterUpload.call(self, url);

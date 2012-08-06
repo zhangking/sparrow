@@ -11,7 +11,7 @@ KindEditor.plugin('insertfile', function(K) {
 	var self = this, name = 'insertfile',
 		allowFileUpload = K.undef(self.allowFileUpload, true),
 		allowFileManager = K.undef(self.allowFileManager, false),
-		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
+		uploadJson = K.undef(self.uploadJson, 'admin/filedown!insert'),
 		lang = self.lang(name + '.');
 	
 	self.plugin.fileDialog = function(options) {
